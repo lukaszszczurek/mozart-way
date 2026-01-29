@@ -5,7 +5,6 @@ import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import { cn } from '../lib/utils';
 
 function LazyImage({ src, alt, className }: { src: string; alt: string; className?: string }) {
-  const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
 
   // Ensure WebP path (in case src is still .jpg)
@@ -13,26 +12,17 @@ function LazyImage({ src, alt, className }: { src: string; alt: string; classNam
   const fallbackSrc = src.replace(/\.webp$/i, '.jpg');
 
   return (
-    <div className={cn('relative', className)}>
-      {/* Placeholder */}
-      {!isLoaded && !hasError && (
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-100 via-slate-200 to-slate-300 animate-pulse" />
-      )}
-
-      {/* Image with WebP - eager loading for small images */}
+    <div className={cn('relative bg-slate-100', className)}>
+      {/* Image with WebP - instant display, no fade */}
       <picture>
         <source srcSet={webpSrc} type="image/webp" />
         <img
           src={fallbackSrc}
           alt={alt}
           loading="eager"
-          fetchPriority="high"
-          onLoad={() => setIsLoaded(true)}
+          decoding="async"
           onError={() => setHasError(true)}
-          className={cn(
-            'w-full h-full object-cover transition-opacity duration-500',
-            isLoaded ? 'opacity-100' : 'opacity-0'
-          )}
+          className="w-full h-full object-cover"
         />
       </picture>
 
