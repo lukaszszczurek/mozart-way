@@ -80,7 +80,7 @@ export function Hero() {
 
           <h1 className="relative text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 animate-fade-up delay-100">
             <span className="block">{t.hero.title}</span>
-            <span className="block mt-2 bg-gradient-to-r from-primary via-violet-600 to-primary bg-clip-text text-transparent">
+            <span className="block mt-2 pb-1 bg-gradient-to-r from-primary via-violet-600 to-primary bg-clip-text text-transparent">
               {t.hero.titleHighlight}
             </span>
             <span className="block pb-2 text-foreground">{t.hero.title2}</span>
