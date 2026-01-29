@@ -165,7 +165,7 @@ export function Benefits() {
                   const number = String(index + 1).padStart(2, '0');
                   return (
                     <BenefitCard
-                      key={index}
+                      key={benefit.title}
                       benefit={benefit}
                       Icon={Icon}
                       number={number}

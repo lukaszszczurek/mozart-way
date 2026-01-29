@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { cn } from '../lib/utils';
@@ -7,10 +7,18 @@ export function Header() {
   const { t, language, setLanguage } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const lastScrollCheck = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      // Throttle: max 10 updates per second
+      const now = Date.now();
+      if (now - lastScrollCheck.current < 100) return;
+      lastScrollCheck.current = now;
+
+      const shouldBeScrolled = window.scrollY > 20;
+      // Only update state if value actually changed
+      setIsScrolled(prev => prev !== shouldBeScrolled ? shouldBeScrolled : prev);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);

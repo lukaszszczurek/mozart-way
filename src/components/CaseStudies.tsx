@@ -103,7 +103,7 @@ export function CaseStudies() {
                 );
 
               return (
-              <CardWrapper key={index}>
+              <CardWrapper key={item.title}>
                 {/* Image container */}
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <LazyImage
