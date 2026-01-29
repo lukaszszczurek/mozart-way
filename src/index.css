@@ -1,0 +1,600 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 262 83% 58%;
+    --accent-foreground: 0 0% 100%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 262 83% 58%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color - universal for light and dark backgrounds */
+::selection {
+  background-color: hsl(262 83% 58%);
+  color: white;
+}
+
+::-moz-selection {
+  background-color: hsl(262 83% 58%);
+  color: white;
+}
+
+/* Focus visible outline */
+:focus-visible {
+  @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+}
+
+/* ====== ANIMATIONS ====== */
+
+/* Fade up animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Scale in animation */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Slide in from left */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide in from right */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Float animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Pulse glow */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 hsl(var(--accent) / 0.4); }
+  50% { box-shadow: 0 0 20px 5px hsl(var(--accent) / 0.2); }
+}
+
+/* Gradient shift */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Animation classes */
+.animate-fade-up {
+  animation: fadeUp 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease-out forwards;
+}
+
+.animate-slide-left {
+  animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.animate-slide-right {
+  animation: slideInRight 0.6s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* Stagger delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+
+/* Initial state for animated elements */
+.animate-on-scroll {
+  opacity: 0;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+}
+
+/* ====== COMPONENTS ====== */
+
+/* Button hover effect */
+.btn-primary {
+  @apply relative overflow-hidden transition-all duration-300;
+}
+
+.btn-primary::before {
+  content: '';
+  @apply absolute inset-0 bg-white/20 translate-y-full transition-transform duration-300;
+}
+
+.btn-primary:hover::before {
+  @apply translate-y-0;
+}
+
+.btn-primary:hover {
+  @apply -translate-y-0.5 shadow-lg shadow-primary/25;
+}
+
+.btn-primary:active {
+  @apply translate-y-0 shadow-md;
+}
+
+/* Secondary button */
+.btn-secondary {
+  @apply transition-all duration-300;
+}
+
+.btn-secondary:hover {
+  @apply -translate-y-0.5 shadow-lg bg-secondary/80;
+}
+
+/* Card hover effect - Anzo style */
+.card-hover {
+  @apply transition-all duration-500 ease-out;
+}
+
+.card-hover:hover {
+  @apply -translate-y-2 shadow-2xl shadow-black/10;
+}
+
+/* Portfolio card - Anzo style */
+.portfolio-card {
+  @apply relative overflow-hidden rounded-2xl bg-white border border-border/50;
+  @apply transition-all duration-500 ease-out;
+  /* Fix for border-radius flickering during hover animations */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  isolation: isolate;
+}
+
+.portfolio-card:hover {
+  @apply shadow-2xl shadow-black/10 border-transparent;
+  transform: translateY(-0.5rem) translateZ(0);
+}
+
+.portfolio-card .card-image {
+  @apply transition-transform duration-700 ease-out;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.portfolio-card:hover .card-image {
+  transform: scale(1.05) translateZ(0);
+}
+
+.portfolio-card .card-overlay {
+  @apply absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent;
+  @apply opacity-0 transition-opacity duration-500;
+}
+
+.portfolio-card:hover .card-overlay {
+  @apply opacity-100;
+}
+
+.portfolio-card .card-content {
+  @apply transition-all duration-500;
+}
+
+.portfolio-card:hover .card-content {
+  @apply translate-y-0 opacity-100;
+}
+
+/* Service card */
+.service-card {
+  @apply relative bg-white rounded-2xl border border-border/50 p-8;
+  @apply transition-all duration-500 ease-out;
+}
+
+.service-card:hover {
+  @apply -translate-y-2 shadow-2xl shadow-black/10 border-transparent;
+}
+
+.service-card.highlighted {
+  @apply border-2 border-primary bg-primary/[0.02];
+}
+
+.service-card.highlighted:hover {
+  @apply border-primary shadow-primary/10;
+}
+
+.service-card.highlighted {
+  overflow: visible;
+}
+
+/* Testimonial card */
+.testimonial-card {
+  @apply bg-white rounded-2xl p-8 border border-border/30;
+  @apply transition-all duration-500 ease-out;
+  @apply shadow-lg shadow-black/[0.04] ring-1 ring-black/[0.02];
+}
+
+.testimonial-card:hover {
+  @apply -translate-y-2 shadow-xl shadow-primary/10 border-primary/20;
+  @apply ring-primary/5;
+}
+
+/* Process step */
+.process-step {
+  @apply relative;
+}
+
+.process-step::after {
+  content: '';
+  @apply absolute top-12 left-1/2 w-px h-16 bg-gradient-to-b from-border to-transparent;
+  @apply hidden md:block;
+}
+
+.process-step:last-child::after {
+  @apply hidden;
+}
+
+/* Gradient text */
+.gradient-text {
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(135deg, hsl(var(--foreground)) 0%, hsl(var(--muted-foreground)) 100%);
+}
+
+/* Gradient background */
+.gradient-bg {
+  background: linear-gradient(135deg, hsl(var(--muted)) 0%, hsl(var(--background)) 100%);
+}
+
+/* Mesh gradient */
+.mesh-gradient {
+  background:
+    radial-gradient(at 40% 20%, hsl(262 83% 58% / 0.08) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, hsl(240 100% 70% / 0.06) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, hsl(340 80% 60% / 0.05) 0px, transparent 50%),
+    radial-gradient(at 80% 50%, hsl(200 80% 60% / 0.05) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, hsl(262 83% 58% / 0.06) 0px, transparent 50%);
+}
+
+/* Grid pattern */
+.grid-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Dotted pattern */
+.dot-pattern {
+  background-image: radial-gradient(circle, hsl(var(--foreground) / 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ====== SCROLLBAR ====== */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/20 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground/40;
+}
+
+/* ====== FORM ELEMENTS ====== */
+
+/* Custom checkbox styling */
+input[type="checkbox"] {
+  @apply appearance-none w-5 h-5 rounded border-2 border-input bg-background cursor-pointer;
+  @apply checked:bg-primary checked:border-primary;
+  @apply focus:outline-none focus:ring-2 focus:ring-primary/20 focus:ring-offset-2;
+  @apply transition-all duration-200;
+  position: relative;
+}
+
+input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* ====== LOADING STATES ====== */
+.skeleton {
+  @apply bg-muted animate-pulse rounded;
+}
+
+/* Image lazy load */
+.lazy-image {
+  @apply transition-opacity duration-500;
+}
+
+.lazy-image.loading {
+  @apply opacity-0;
+}
+
+.lazy-image.loaded {
+  @apply opacity-100;
+}
+
+/* ====== ADDITIONAL ANIMATIONS ====== */
+
+/* Rotate animation */
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Shimmer/shine effect */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Bounce in */
+@keyframes bounceIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Glow pulse */
+@keyframes glowPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 5px hsl(262 83% 58% / 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px hsl(262 83% 58% / 0.5));
+  }
+}
+
+/* Float with rotation */
+@keyframes floatRotate {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(3deg);
+  }
+}
+
+/* Scroll indicator bounce */
+@keyframes scrollBounce {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) translateY(6px);
+    opacity: 0.5;
+  }
+}
+
+/* Animation classes */
+.animate-rotate {
+  animation: rotate 20s linear infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    hsl(var(--primary) / 0.1) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.animate-bounce-in {
+  animation: bounceIn 0.6s ease-out forwards;
+}
+
+.animate-glow {
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+.animate-float-rotate {
+  animation: floatRotate 4s ease-in-out infinite;
+}
+
+/* ====== DECORATIVE ELEMENTS ====== */
+
+/* Wave divider */
+.wave-divider {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  overflow: hidden;
+}
+
+.wave-divider::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, hsl(262 83% 58% / 0.1) 0%, transparent 50%);
+}
+
+/* Gradient orb */
+.gradient-orb {
+  @apply absolute rounded-full blur-3xl opacity-30 pointer-events-none;
+  background: radial-gradient(circle, hsl(262 83% 58% / 0.4) 0%, transparent 70%);
+}
+
+.gradient-orb.primary {
+  background: radial-gradient(circle, hsl(262 83% 58% / 0.4) 0%, transparent 70%);
+}
+
+.gradient-orb.secondary {
+  background: radial-gradient(circle, hsl(200 80% 60% / 0.3) 0%, transparent 70%);
+}
+
+/* Shine on hover */
+.shine-on-hover {
+  @apply relative;
+}
+
+.shine-on-hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 60%
+  );
+  transform: translateX(-100%) skewX(-15deg);
+  transition: transform 0.7s ease;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.shine-on-hover:hover::after {
+  transform: translateX(100%) skewX(-15deg);
+}
+
+/* Glass effect */
+.glass {
+  @apply bg-white/70 backdrop-blur-xl border border-white/20;
+}
+
+/* Gradient border */
+.gradient-border {
+  @apply relative;
+}
+
+.gradient-border::before {
+  content: '';
+  @apply absolute -inset-px rounded-2xl;
+  background: linear-gradient(135deg, hsl(262 83% 58% / 0.5), hsl(200 80% 60% / 0.5));
+  z-index: -1;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  padding: 2px;
+}
+
+/* Animated gradient background */
+.animated-gradient-bg {
+  background: linear-gradient(
+    -45deg,
+    hsl(262 83% 58% / 0.1),
+    hsl(200 80% 60% / 0.1),
+    hsl(340 80% 60% / 0.1),
+    hsl(262 83% 58% / 0.1)
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+/* Floating particles effect */
+.particles {
+  @apply absolute inset-0 overflow-hidden pointer-events-none;
+}
+
+/* Text reveal animation */
+.text-reveal {
+  @apply relative overflow-hidden;
+}
+
+.text-reveal span {
+  @apply inline-block;
+  animation: fadeUp 0.6s ease-out forwards;
+}
+
+/* Hover lift effect */
+.hover-lift {
+  @apply transition-all duration-300;
+}
+
+.hover-lift:hover {
+  @apply -translate-y-1 shadow-lg;
+}
