@@ -8,7 +8,7 @@ const stepIcons = [Search, Palette, Code, Rocket];
 
 export function Process() {
   const { t } = useLanguage();
-  const { ref, isVisible } = useIntersectionObserver();
+  const { ref, isVisible } = useIntersectionObserver({ sectionId: 'process' });
 
   return (
     <section id="process" className="py-24 lg:py-32 scroll-mt-20 bg-gradient-to-br from-primary via-primary to-violet-700 text-white relative overflow-hidden selection:bg-white/30 selection:text-white">

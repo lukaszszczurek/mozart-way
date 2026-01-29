@@ -105,7 +105,7 @@ function BenefitCard({
 
 export function Benefits() {
   const { t } = useLanguage();
-  const { ref, isVisible } = useIntersectionObserver();
+  const { ref, isVisible } = useIntersectionObserver({ sectionId: 'benefits' });
 
   return (
     <section className="py-24 lg:py-32 relative overflow-hidden">

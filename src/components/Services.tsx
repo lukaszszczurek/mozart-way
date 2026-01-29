@@ -37,7 +37,7 @@ function ServiceImage({ src, alt }: { src: string; alt: string }) {
 
 export function Services() {
   const { t } = useLanguage();
-  const { ref, isVisible } = useIntersectionObserver();
+  const { ref, isVisible } = useIntersectionObserver({ sectionId: 'services' });
 
   return (
     <section id="services" className="py-24 lg:py-32 bg-muted/30 scroll-mt-20 relative overflow-x-clip">

@@ -49,7 +49,7 @@ function LazyImage({ src, alt, className }: { src: string; alt: string; classNam
 
 export function CaseStudies() {
   const { t } = useLanguage();
-  const { ref, isVisible } = useIntersectionObserver();
+  const { ref, isVisible } = useIntersectionObserver({ sectionId: 'case-studies' });
 
   return (
     <section id="portfolio" className="py-24 lg:py-32 scroll-mt-20 relative overflow-hidden bg-white">

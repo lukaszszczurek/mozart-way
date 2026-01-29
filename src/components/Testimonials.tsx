@@ -5,7 +5,7 @@ import { cn } from '../lib/utils';
 
 export function Testimonials() {
   const { t } = useLanguage();
-  const { ref, isVisible } = useIntersectionObserver();
+  const { ref, isVisible } = useIntersectionObserver({ sectionId: 'testimonials' });
 
   return (
     <section id="testimonials" className="py-24 lg:py-32 scroll-mt-20 bg-gradient-to-b from-violet-50/50 via-white to-white relative overflow-hidden">
