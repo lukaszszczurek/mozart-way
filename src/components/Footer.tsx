@@ -46,7 +46,7 @@ export function Footer() {
           <div className="lg:col-span-2">
             <a href="#" className="flex items-center gap-3 mb-6">
               <div className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-violet-500 to-violet-700 rounded-xl">
-                <img src="/images/logo-icon-white.png" alt="mozart_way logo" className="w-full h-full object-contain p-1" />
+                <img src="/images/logo-icon-white.webp" alt="mozart_way logo" className="w-full h-full object-contain p-1" />
               </div>
               <span className="text-lg font-bold tracking-tight">
                 <span className="text-background">mozart</span>

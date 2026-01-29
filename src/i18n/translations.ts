@@ -129,7 +129,7 @@ export const translations = {
           description: 'Elegancka strona dla salonu samochodowego z katalogiem pojazdów i systemem rezerwacji jazd próbnych.',
           results: ['+250% więcej leadów', '2s czas ładowania', '95/100 PageSpeed'],
           technologies: ['React', 'Next.js', 'Tailwind'],
-          image: '/images/case-autoelite.jpg',
+          image: '/images/case-autoelite.webp',
           link: 'https://elitemetro.mozartway.com/',
         },
         {
@@ -139,7 +139,7 @@ export const translations = {
           description: 'Elegancka strona prezentująca usługi projektowania i pielęgnacji ogrodów. Nowoczesny design z galerią realizacji.',
           results: ['+180% konwersji', '4.8/5 ocena UX', '+40% zapytań'],
           technologies: ['React', 'Tailwind', 'Vite'],
-          image: '/images/case-greengarden.jpg',
+          image: '/images/case-greengarden.webp',
           link: 'https://greengarden.mozartway.com/',
         },
         {
@@ -148,7 +148,7 @@ export const translations = {
           category: 'Edukacja',
           description: 'Nowoczesna strona dla szkoły korepetycji z matematyki z systemem zapisów online i harmonogramem zajęć.',
           results: ['+120 uczniów/mies.', 'Top 3 w Google', '+65% zapytań'],
-          image: '/images/case-sigma.jpg',
+          image: '/images/case-sigma.webp',
           link: 'https://www.sigma-study.net/',
         },
       ],
@@ -419,7 +419,7 @@ export const translations = {
           description: 'Elegant website for a car dealership with vehicle catalog and test drive booking system.',
           results: ['+250% more leads', '2s load time', '95/100 PageSpeed'],
           technologies: ['React', 'Next.js', 'Tailwind'],
-          image: '/images/case-autoelite.jpg',
+          image: '/images/case-autoelite.webp',
           link: 'https://elitemetro.mozartway.com/',
         },
         {
@@ -429,7 +429,7 @@ export const translations = {
           description: 'Elegant website showcasing garden design and maintenance services. Modern design with project gallery.',
           results: ['+180% conversions', '4.8/5 UX rating', '+40% inquiries'],
           technologies: ['React', 'Tailwind', 'Vite'],
-          image: '/images/case-greengarden.jpg',
+          image: '/images/case-greengarden.webp',
           link: 'https://greengarden.mozartway.com/',
         },
         {
@@ -438,7 +438,7 @@ export const translations = {
           category: 'Education',
           description: 'Modern website for a math tutoring school with online enrollment system and class schedule.',
           results: ['+120 students/month', 'Top 3 in Google', '+65% inquiries'],
-          image: '/images/case-sigma.jpg',
+          image: '/images/case-sigma.webp',
           link: 'https://www.sigma-study.net/',
         },
       ],

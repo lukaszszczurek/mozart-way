@@ -8,6 +8,10 @@ function LazyImage({ src, alt, className }: { src: string; alt: string; classNam
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
 
+  // Ensure WebP path (in case src is still .jpg)
+  const webpSrc = src.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+  const fallbackSrc = src.replace(/\.webp$/i, '.jpg');
+
   return (
     <div className={cn('relative', className)}>
       {/* Placeholder */}
@@ -15,18 +19,22 @@ function LazyImage({ src, alt, className }: { src: string; alt: string; classNam
         <div className="absolute inset-0 bg-gradient-to-br from-slate-100 via-slate-200 to-slate-300 animate-pulse" />
       )}
 
-      {/* Image */}
-      <img
-        src={src}
-        alt={alt}
-        loading="lazy"
-        onLoad={() => setIsLoaded(true)}
-        onError={() => setHasError(true)}
-        className={cn(
-          'w-full h-full object-cover transition-opacity duration-500',
-          isLoaded ? 'opacity-100' : 'opacity-0'
-        )}
-      />
+      {/* Image with WebP - eager loading for small images */}
+      <picture>
+        <source srcSet={webpSrc} type="image/webp" />
+        <img
+          src={fallbackSrc}
+          alt={alt}
+          loading="eager"
+          fetchPriority="high"
+          onLoad={() => setIsLoaded(true)}
+          onError={() => setHasError(true)}
+          className={cn(
+            'w-full h-full object-cover transition-opacity duration-500',
+            isLoaded ? 'opacity-100' : 'opacity-0'
+          )}
+        />
+      </picture>
 
       {/* Error fallback */}
       {hasError && (

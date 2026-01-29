@@ -5,9 +5,9 @@ import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import { cn } from '../lib/utils';
 
 const serviceImages = [
-  '/images/service-starter.jpg',
-  '/images/service-pro.jpg',
-  '/images/service-ecommerce.jpg',
+  '/images/service-starter.webp',
+  '/images/service-pro.webp',
+  '/images/service-ecommerce.webp',
 ];
 
 // Icons for each package

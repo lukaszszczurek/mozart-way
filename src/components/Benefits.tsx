@@ -17,23 +17,29 @@ function BenefitsImage({ src, alt }: { src: string; alt: string }) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
 
+  // Convert to WebP path
+  const webpSrc = src.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+
   return (
     <div className="relative w-full h-full rounded-2xl lg:rounded-3xl overflow-hidden bg-gradient-to-br from-slate-100 via-slate-200 to-slate-300">
       {!isLoaded && !hasError && (
         <div className="absolute inset-0 bg-gradient-to-br from-slate-100 via-slate-200 to-slate-300 animate-pulse" />
       )}
 
-      <img
-        src={src}
-        alt={alt}
-        loading="lazy"
-        onLoad={() => setIsLoaded(true)}
-        onError={() => setHasError(true)}
-        className={cn(
-          'w-full h-full object-cover transition-opacity duration-500',
-          isLoaded ? 'opacity-100' : 'opacity-0'
-        )}
-      />
+      <picture>
+        <source srcSet={webpSrc} type="image/webp" />
+        <img
+          src={src}
+          alt={alt}
+          loading="lazy"
+          onLoad={() => setIsLoaded(true)}
+          onError={() => setHasError(true)}
+          className={cn(
+            'w-full h-full object-cover transition-opacity duration-500',
+            isLoaded ? 'opacity-100' : 'opacity-0'
+          )}
+        />
+      </picture>
 
       <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-transparent pointer-events-none" />
 
@@ -105,7 +111,7 @@ export function Benefits() {
     <section className="py-24 lg:py-32 relative overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url(/images/benefits-bg.jpg)' }}
+        style={{ backgroundImage: 'url(/images/benefits-bg.webp)' }}
       >
         <div className="absolute inset-0 bg-white/85" />
       </div>

@@ -18,10 +18,10 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
-      {/* Background image with overlay */}
+      {/* Background image with overlay - using WebP */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url(/images/hero-bg.jpg)' }}
+        style={{ backgroundImage: 'url(/images/hero-bg.webp)' }}
       >
         <div className="absolute inset-0 bg-white/90" />
       </div>
@@ -41,24 +41,32 @@ export function Hero() {
       {/* Treble clef decoration on left */}
       <div className="absolute top-1/4 left-16 lg:left-24 xl:left-32 hidden lg:block pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-violet-500/20 to-primary/20 blur-3xl scale-150" />
-        <img
-          src="/images/decor-treble-clef.png?v=3"
-          alt=""
-          className="relative w-48 h-64 xl:w-56 xl:h-80 2xl:w-64 2xl:h-96 object-contain opacity-50 animate-float drop-shadow-[0_5px_15px_rgba(139,92,246,0.25)]"
-          style={{ animationDelay: '0.5s' }}
-        />
+        <picture>
+          <source srcSet="/images/decor-treble-clef.webp" type="image/webp" />
+          <img
+            src="/images/decor-treble-clef.png"
+            alt=""
+            loading="eager"
+            className="relative w-48 h-64 xl:w-56 xl:h-80 2xl:w-64 2xl:h-96 object-contain opacity-50 animate-float drop-shadow-[0_5px_15px_rgba(139,92,246,0.25)]"
+            style={{ animationDelay: '0.5s' }}
+          />
+        </picture>
       </div>
 
       {/* Mozart illustration with glow effect */}
       <div className="absolute top-28 right-20 hidden xl:block pointer-events-none">
         {/* Glow behind image */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-violet-500/30 blur-3xl scale-110 animate-pulse" />
-        <img
-          src="/images/mozart-hero.jpg"
-          alt="Mozart illustration"
-          className="relative w-72 h-72 object-contain opacity-95 animate-float drop-shadow-[0_20px_50px_rgba(124,58,237,0.3)]"
-          style={{ animationDelay: '1s' }}
-        />
+        <picture>
+          <source srcSet="/images/mozart-hero.webp" type="image/webp" />
+          <img
+            src="/images/mozart-hero.jpg"
+            alt="Mozart illustration"
+            loading="eager"
+            className="relative w-72 h-72 object-contain opacity-95 animate-float drop-shadow-[0_20px_50px_rgba(124,58,237,0.3)]"
+            style={{ animationDelay: '1s' }}
+          />
+        </picture>
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-8 text-center">
@@ -66,16 +74,16 @@ export function Hero() {
         <div className="relative">
           {/* Musical notes behind/around the heading */}
           <div className="absolute -left-8 -top-4 pointer-events-none opacity-25 animate-float hidden md:block" style={{ animationDelay: '0s' }}>
-            <img src="/images/decor-notes.png" alt="" className="w-20 h-20 object-contain" />
+            <img src="/images/decor-notes.webp" alt="" className="w-20 h-20 object-contain" />
           </div>
           <div className="absolute -right-4 top-0 pointer-events-none opacity-20 animate-float rotate-12 hidden md:block" style={{ animationDelay: '0.5s' }}>
-            <img src="/images/decor-notes.png" alt="" className="w-16 h-16 object-contain" />
+            <img src="/images/decor-notes.webp" alt="" className="w-16 h-16 object-contain" />
           </div>
           <div className="absolute left-1/4 -bottom-2 pointer-events-none opacity-15 animate-float -rotate-6 hidden md:block" style={{ animationDelay: '1s' }}>
-            <img src="/images/decor-notes.png" alt="" className="w-14 h-14 object-contain" />
+            <img src="/images/decor-notes.webp" alt="" className="w-14 h-14 object-contain" />
           </div>
           <div className="absolute right-1/4 -top-6 pointer-events-none opacity-20 animate-float hidden md:block" style={{ animationDelay: '1.5s' }}>
-            <img src="/images/decor-notes.png" alt="" className="w-12 h-12 object-contain" />
+            <img src="/images/decor-notes.webp" alt="" className="w-12 h-12 object-contain" />
           </div>
 
           <h1 className="relative text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 animate-fade-up delay-100">
