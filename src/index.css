@@ -20,6 +20,21 @@
     --input: 240 5.9% 90%;
     --ring: 262 83% 58%;
     --radius: 0.75rem;
+
+    /* Mozart Way brand violet tokens — used by /education landing */
+    --mw-violet: 263 70% 52%;
+    --mw-violet-deep: 267 75% 35%;
+    --mw-violet-soft: 258 75% 94%;
+
+    /* Master Mode brand tokens — used by /mastermode landing
+       Warm, child-friendly palette inspired by firstgradefrenchies.com + mastermode.ai */
+    --mm-cream: 42 55% 96%;
+    --mm-coral: 10 82% 66%;
+    --mm-coral-deep: 8 72% 52%;
+    --mm-yellow: 44 96% 62%;
+    --mm-mint: 158 55% 72%;
+    --mm-navy: 222 42% 18%;
+    --mm-navy-soft: 222 20% 40%;
   }
 
   .dark {
@@ -632,8 +647,8 @@ input[type="checkbox"]:checked::after {
   mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
 }
 
-/* Noise texture for CTA buttons */
-.noise-texture::before {
+/* Noise texture for CTA buttons (mozart-ads) — renamed to avoid collision with global overlay below */
+.noise-texture-cta::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -722,4 +737,68 @@ input[type="checkbox"]:checked::after {
 }
 .hover-glow:hover {
   animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* ====== EDUCATION / MASTERMODE LANDING UTILITIES ====== */
+/* Used by /education and /mastermode page components */
+
+/* Global film-grain overlay (fixed, very subtle) */
+.noise-texture::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+.shadow-violet-sm {
+  box-shadow:
+    0 2px 8px -2px hsl(var(--mw-violet) / 0.12),
+    0 1px 3px hsl(var(--mw-violet) / 0.08);
+}
+.shadow-violet {
+  box-shadow:
+    0 6px 20px -6px hsl(var(--mw-violet) / 0.18),
+    0 2px 6px -2px hsl(var(--mw-violet) / 0.10);
+}
+.shadow-violet-lg {
+  box-shadow:
+    0 16px 40px -12px hsl(var(--mw-violet) / 0.22),
+    0 4px 12px -4px hsl(var(--mw-violet) / 0.12);
+}
+.shadow-violet-glow {
+  box-shadow:
+    0 0 0 1px hsl(var(--mw-violet) / 0.15),
+    0 8px 24px -6px hsl(var(--mw-violet) / 0.28),
+    0 2px 8px -2px hsl(var(--mw-violet) / 0.14);
+}
+.hover-shadow-violet {
+  transition: box-shadow 250ms ease, transform 200ms ease;
+}
+.hover-shadow-violet:hover {
+  box-shadow:
+    0 12px 32px -8px hsl(var(--mw-violet) / 0.24),
+    0 4px 12px -4px hsl(var(--mw-violet) / 0.14);
+}
+
+.ring-violet-soft {
+  box-shadow: 0 0 0 1px hsl(var(--mw-violet) / 0.18);
+}
+
+.violet-glow-ambient {
+  background: radial-gradient(
+    ellipse 60% 50% at 50% 50%,
+    hsl(var(--mw-violet) / 0.10) 0%,
+    transparent 70%
+  );
+}
+
+@media (hover: none) {
+  .bg-fixed {
+    background-attachment: scroll !important;
+  }
 }

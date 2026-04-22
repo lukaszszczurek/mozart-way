@@ -1,16 +1,6 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import MozartAdsPage from './pages/mozart-ads/MozartAdsPage';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './router';
 
-function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/mozart-ads" element={<MozartAdsPage />} />
-      </Routes>
-    </BrowserRouter>
-  );
+export default function App() {
+  return <RouterProvider router={router} />;
 }
-
-export default App;

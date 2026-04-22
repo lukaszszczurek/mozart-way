@@ -32,6 +32,10 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive, 0 84% 60%))",
+          foreground: "hsl(var(--destructive-foreground, 0 0% 98%))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -40,15 +44,17 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
-        body: ['"Inter"', 'system-ui', 'sans-serif'],
+        display: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+        body: ['Inter', 'system-ui', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace'],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-out',
         'slide-up': 'slideUp 0.5s ease-out',
-        "fade-in-up": "fade-in 0.8s ease-out forwards",
-        "marquee": "marquee 40s linear infinite",
+        'shimmer': 'shimmer 2s linear infinite',
+        'marquee': 'marquee var(--marquee-duration, 40s) linear infinite',
+        'counter': 'counter 2s ease-out forwards',
+        'fade-in-up': 'fade-in-up 0.8s ease-out forwards',
       },
       keyframes: {
         fadeIn: {
@@ -59,13 +65,21 @@ export default {
           '0%': { opacity: '0', transform: 'translateY(20px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
-        "fade-in": {
-          from: { opacity: "0", transform: "translateY(var(--offset, 10px))" },
-          to: { opacity: "1", transform: "translateY(0)" },
+        shimmer: {
+          '0%': { backgroundPosition: '-200% 0' },
+          '100%': { backgroundPosition: '200% 0' },
         },
-        "marquee": {
-          from: { transform: "translateX(0)" },
-          to: { transform: "translateX(calc(-50% - 1rem))" },
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(calc(-50% - 1rem))' },
+        },
+        'fade-in-up': {
+          '0%': { opacity: '0', transform: 'translateY(16px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        counter: {
+          '0%': { opacity: '0', transform: 'translateY(10px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
         },
       },
     },
