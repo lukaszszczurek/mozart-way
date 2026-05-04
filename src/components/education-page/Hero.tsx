@@ -79,10 +79,10 @@ export default function Hero() {
               variants={heroVariants}
               initial="hidden"
               animate="visible"
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[hsl(var(--accent))]/15 border border-[hsl(var(--accent))]/25 mb-7 motion-reduce:animate-none"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[hsl(var(--accent))]/12 border border-[hsl(var(--accent))]/40 mb-7 motion-reduce:animate-none"
             >
               <Sparkles size={14} className="text-[hsl(var(--accent))]" />
-              <span className="text-xs font-medium text-[hsl(var(--accent-foreground))] uppercase tracking-wider">
+              <span className="text-xs font-semibold text-[hsl(var(--accent))] uppercase tracking-wider">
                 System AI dla placówek edukacyjnych
               </span>
             </motion.div>
