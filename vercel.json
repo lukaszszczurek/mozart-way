@@ -5,6 +5,8 @@
     { "source": "/book-call", "destination": "https://la-bot-nine.vercel.app/book-call" },
     { "source": "/book-call/:path+", "destination": "https://la-bot-nine.vercel.app/book-call/:path+" },
     { "source": "/api/booking/:path+", "destination": "https://la-bot-nine.vercel.app/api/booking/:path+" },
+    { "source": "/strategia", "destination": "https://la-bot-nine.vercel.app/strategia" },
+    { "source": "/strategia/:path+", "destination": "https://la-bot-nine.vercel.app/strategia/:path+" },
     { "source": "/api/meetings/:id/ics", "destination": "https://la-bot-nine.vercel.app/api/meetings/:id/ics" },
     { "source": "/_next/:path+", "destination": "https://la-bot-nine.vercel.app/_next/:path+" },
     { "source": "/(.*)", "destination": "/index.html" }
