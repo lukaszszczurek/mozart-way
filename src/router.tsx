@@ -7,6 +7,8 @@ import Education from './pages/Education';
 import Mastermode from './pages/Mastermode';
 import MozartAdsPage from './pages/mozart-ads/MozartAdsPage';
 import Resume from './pages/Resume';
+import SalesResume from './pages/SalesResume';
+import TechResume from './pages/TechResume';
 
 /**
  * Page registry. Add new service landings here as Dr Strange generates them.
@@ -48,6 +50,14 @@ export const router = createBrowserRouter([
   {
     path: '/resume',
     element: <Resume />,
+  },
+  {
+    path: '/salesresume',
+    element: <SalesResume />,
+  },
+  {
+    path: '/techresume',
+    element: <TechResume />,
   },
   // Dr Strange adds routes for new landings here
 ]);

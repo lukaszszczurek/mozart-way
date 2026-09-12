@@ -1,6 +1,53 @@
 import { Github, Linkedin, Youtube, Mail, Home } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
-export const DATA = {
+export interface ResumeData {
+  name: string;
+  initials: string;
+  url: string;
+  location: string;
+  description: string;
+  summary: string;
+  avatarUrl: string;
+  skills: { name: string }[];
+  navbar: { href: string; icon: LucideIcon; label: string }[];
+  contact: {
+    email: string;
+    social: Record<string, { name: string; url: string; icon: LucideIcon; navbar: boolean }>;
+  };
+  work: {
+    company: string;
+    href: string;
+    badges: string[];
+    location: string;
+    title: string;
+    logoUrl: string;
+    start: string;
+    end?: string;
+    description: string;
+  }[];
+  education: { school: string; href: string; degree: string; logoUrl: string; start: string; end: string }[];
+  projects: {
+    title: string;
+    href: string;
+    dates: string;
+    description: string;
+    technologies: string[];
+    links: { icon: React.ReactNode; type: string; href: string }[];
+    image: string;
+    video: string;
+  }[];
+  hackathons: {
+    title: string;
+    dates: string;
+    location: string;
+    description: string;
+    image: string;
+    links: { title: string; icon: React.ReactNode; href: string }[];
+  }[];
+}
+
+export const DATA: ResumeData = {
   name: "Łukasz Szczurek",
   initials: "ŁS",
   url: "https://mozartway.com/resume",
@@ -93,7 +140,7 @@ oszczędza czas i pieniądze — bez zbędnej otoczki.`,
       dates: "TODO",
       description: "TODO: krótki opis projektu.",
       technologies: ["Next.js", "TypeScript"],
-      links: [] as { icon: React.ReactNode; type: string; href: string }[],
+      links: [],
       image: "",
       video: "",
     },
@@ -107,7 +154,7 @@ oszczędza czas i pieniądze — bez zbędnej otoczki.`,
       location: "TODO",
       description: "TODO: co zbudowano.",
       image: "",
-      links: [] as { title: string; icon: React.ReactNode; href: string }[],
+      links: [],
     },
   ],
 };

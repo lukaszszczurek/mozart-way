@@ -1,15 +1,20 @@
 import { Dock, DockIcon } from "@/components/magicui/dock";
 import { Separator } from "@/components/ui/separator";
 import { Tooltip, TooltipArrow, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
-import { DATA } from "@/data/resume-data";
+import type { ResumeData } from "@/data/resume-data";
 
-export default function Navbar() {
-  const socials = Object.entries(DATA.contact.social).filter(([, social]) => social.navbar);
+interface NavbarProps {
+  navbar: ResumeData["navbar"];
+  social: ResumeData["contact"]["social"];
+}
+
+export default function Navbar({ navbar, social }: NavbarProps) {
+  const socials = Object.entries(social).filter(([, item]) => item.navbar);
 
   return (
     <div className="pointer-events-none fixed inset-x-0 bottom-4 z-30">
       <Dock className="z-50 pointer-events-auto relative h-14 p-2 w-fit mx-auto flex gap-2 border bg-card/90 backdrop-blur-3xl shadow-[0_0_10px_3px] shadow-primary/5">
-        {DATA.navbar.map((item) => (
+        {navbar.map((item) => (
           <Tooltip key={item.href}>
             <TooltipTrigger asChild>
               <a href={item.href}>
