@@ -52,6 +52,9 @@ export default function WorkSection({ work }: { work: ResumeData["work"] }) {
                     </span>
                   </div>
                   <div className="font-sans text-sm text-muted-foreground">{job.title}</div>
+                  {job.stack && job.stack.length > 0 && (
+                    <div className="font-sans text-xs text-muted-foreground/70">{job.stack.join(" · ")}</div>
+                  )}
                 </div>
               </div>
               <div className="flex items-center gap-1 text-xs tabular-nums text-muted-foreground text-right flex-none">
@@ -62,7 +65,11 @@ export default function WorkSection({ work }: { work: ResumeData["work"] }) {
             </div>
           </AccordionTrigger>
           <AccordionContent className="p-0 ml-13 text-xs sm:text-sm text-muted-foreground">
-            {job.description}
+            <ul className="list-disc pl-4 space-y-1.5">
+              {job.description.map((bullet) => (
+                <li key={bullet}>{bullet}</li>
+              ))}
+            </ul>
           </AccordionContent>
         </AccordionItem>
       ))}

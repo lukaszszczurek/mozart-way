@@ -24,7 +24,8 @@ export interface ResumeData {
     logoUrl: string;
     start: string;
     end?: string;
-    description: string;
+    stack?: string[];
+    description: string[];
   }[];
   education: { school: string; href: string; degree: string; logoUrl: string; start: string; end: string }[];
   projects: {
@@ -85,7 +86,7 @@ oszczędza czas i pieniądze — bez zbędnej otoczki.`,
       },
       LinkedIn: {
         name: "LinkedIn",
-        url: "#", // TODO: dodaj link do LinkedIn
+        url: "https://www.linkedin.com/in/%C5%82ukasz-szczurek/",
         icon: Linkedin,
         navbar: true,
       },
@@ -104,7 +105,7 @@ oszczędza czas i pieniądze — bez zbędnej otoczki.`,
     },
   },
 
-  // TODO: uzupełnij realną historią zawodową
+  // TODO: uzupełnij realną historią zawodową (pełna wersja: patrz resume-data-sales.ts / resume-data-tech.ts)
   work: [
     {
       company: "Mozart Way",
@@ -112,23 +113,31 @@ oszczędza czas i pieniądze — bez zbędnej otoczki.`,
       badges: [],
       location: "Zdalnie",
       title: "Założyciel",
-      logoUrl: "",
+      logoUrl: "/education/brand/mozart-way-mark-violet.svg",
       start: "2023",
       end: undefined,
-      description:
+      description: [
         "TODO: opisz zakres — budowa systemu AI dla placówek edukacyjnych, CRM sprzedażowy, automatyzacje.",
+      ],
     },
   ],
 
-  // TODO: uzupełnij realną edukacją
   education: [
     {
-      school: "TODO: nazwa uczelni/szkoły",
-      href: "#",
-      degree: "TODO: kierunek / tytuł",
+      school: "Polsko-Japońska Akademia Technik Komputerowych",
+      href: "https://pja.edu.pl",
+      degree: "Informatyka, inż. (w trakcie)",
       logoUrl: "",
-      start: "TODO",
-      end: "TODO",
+      start: "2023",
+      end: "obecnie",
+    },
+    {
+      school: "XIV LO im. Stanisława Staszica w Warszawie",
+      href: "https://staszic.waw.pl",
+      degree: "Klasa eksperymentalna matematyczna",
+      logoUrl: "",
+      start: "2018",
+      end: "2021",
     },
   ],
 
