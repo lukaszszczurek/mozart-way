@@ -1,11 +1,13 @@
 {
   "rewrites": [
-    { "source": "/book", "destination": "https://la-bot-nine.vercel.app/book" },
-    { "source": "/book/:path+", "destination": "https://la-bot-nine.vercel.app/book/:path+" },
-    { "source": "/book-call", "destination": "https://la-bot-nine.vercel.app/book-call" },
-    { "source": "/book-call/:path+", "destination": "https://la-bot-nine.vercel.app/book-call/:path+" },
+    { "source": "/book", "destination": "https://mozartway-calendar.vercel.app/book" },
+    { "source": "/book/:path+", "destination": "https://mozartway-calendar.vercel.app/book/:path+" },
+    { "source": "/book-call", "destination": "https://mozartway-calendar.vercel.app/book-call" },
+    { "source": "/book-call/:path+", "destination": "https://mozartway-calendar.vercel.app/book-call/:path+" },
+    { "source": "/r/:code", "destination": "https://mozartway-calendar.vercel.app/r/:code" },
+    { "source": "/calendar-assets/:path+", "destination": "https://mozartway-calendar.vercel.app/calendar-assets/:path+" },
     { "source": "/api/booking/:path+", "destination": "https://la-bot-nine.vercel.app/api/booking/:path+" },
-    { "source": "/strategia", "destination": "https://la-bot-nine.vercel.app/strategia" },
+    { "source": "/strategia", "destination": "https://mozartway-calendar.vercel.app/strategia" },
     { "source": "/strategia/:path+", "destination": "https://la-bot-nine.vercel.app/strategia/:path+" },
     { "source": "/api/strategia/:path+", "destination": "https://la-bot-nine.vercel.app/api/strategia/:path+" },
     { "source": "/kalkulator", "destination": "https://la-bot-nine.vercel.app/z/kalkulator" },
