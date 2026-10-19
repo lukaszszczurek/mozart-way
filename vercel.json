@@ -8,7 +8,7 @@
     { "source": "/calendar-assets/:path+", "destination": "https://mozartway-calendar.vercel.app/calendar-assets/:path+" },
     { "source": "/api/booking/:path+", "destination": "https://la-bot-nine.vercel.app/api/booking/:path+" },
     { "source": "/strategia", "destination": "https://mozartway-calendar.vercel.app/strategia" },
-    { "source": "/strategia/:path+", "destination": "https://la-bot-nine.vercel.app/strategia/:path+" },
+    { "source": "/strategia/:path+", "destination": "https://mozartway-calendar.vercel.app/strategia/:path+" },
     { "source": "/api/strategia/:path+", "destination": "https://la-bot-nine.vercel.app/api/strategia/:path+" },
     { "source": "/kalkulator", "destination": "https://la-bot-nine.vercel.app/z/kalkulator" },
     { "source": "/z/:path+", "destination": "https://la-bot-nine.vercel.app/z/:path+" },
