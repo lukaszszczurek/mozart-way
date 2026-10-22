@@ -52,9 +52,7 @@ export default function Nav() {
 
         {/* Desktop CTA */}
         <a
-          href="https://calendly.com/lukasz-szczurek-mozartway/30min"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="/book"
           className="hidden md:inline-flex items-center rounded-lg bg-gradient-to-r from-primary to-primary/80 px-4 py-2 text-sm font-medium text-primary-foreground hover:ring-2 hover:ring-primary/40 hover:shadow-lg hover:shadow-primary/20 transition-all duration-200"
         >
           Book a Call
@@ -91,9 +89,7 @@ export default function Nav() {
                 </a>
               ))}
               <a
-                href="https://calendly.com/lukasz-szczurek-mozartway/30min"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/book"
                 onClick={() => setMobileOpen(false)}
                 className="inline-flex items-center justify-center rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground"
               >

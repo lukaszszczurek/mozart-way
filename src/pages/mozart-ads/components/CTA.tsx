@@ -54,9 +54,7 @@ export default function CTA() {
           className="mt-8 flex flex-col sm:flex-row gap-3 justify-center motion-reduce:animate-none"
         >
           <a
-            href="https://calendly.com/lukasz-szczurek-mozartway/30min"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/book"
             className="relative inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary via-primary to-primary/80 px-8 py-4 text-base font-medium text-primary-foreground hover:ring-4 hover:ring-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-px transition-all duration-200 group"
           >
             Book Your Free Strategy Call

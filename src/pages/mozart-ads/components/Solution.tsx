@@ -346,9 +346,7 @@ export default function Solution() {
           className="mt-20 text-center motion-reduce:animate-none"
         >
           <a
-            href="https://calendly.com/lukasz-szczurek-mozartway/30min"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/book"
             className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-primary to-primary/80 px-6 py-3 text-sm font-medium text-primary-foreground hover:ring-4 hover:ring-primary/20 hover:shadow-xl hover:shadow-primary/25 hover:-translate-y-px transition-all duration-200 group"
           >
             Book a Free Strategy Call

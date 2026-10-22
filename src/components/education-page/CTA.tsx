@@ -37,9 +37,7 @@ export default function CTA() {
 
           <div className="mt-10">
             <a
-              href="https://calendly.com"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/book"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-[hsl(var(--primary))] font-medium text-base hover:-translate-y-px transition-transform duration-150 shadow-violet-lg"
             >
               Umów bezpłatną rozmowę

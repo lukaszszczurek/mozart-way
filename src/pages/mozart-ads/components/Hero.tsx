@@ -59,9 +59,7 @@ export default function Hero() {
           className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 motion-reduce:animate-none"
         >
           <a
-            href="https://calendly.com/lukasz-szczurek-mozartway/30min"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/book"
             className="relative inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-primary via-primary to-primary/80 px-8 py-3.5 text-sm font-medium text-primary-foreground hover:ring-4 hover:ring-primary/20 hover:shadow-xl hover:shadow-primary/25 hover:-translate-y-px transition-all duration-200 group"
           >
             Book a Free Strategy Call
