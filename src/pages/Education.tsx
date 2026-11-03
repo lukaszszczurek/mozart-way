@@ -9,6 +9,7 @@ import Problem from '../components/education-page/Problem';
 import Disqualification from '../components/education-page/Disqualification';
 import Solution from '../components/education-page/Solution';
 import Features from '../components/education-page/Features';
+import DemoVideo from '../components/education-page/DemoVideo';
 import Gallery from '../components/education-page/Gallery';
 import FounderStory from '../components/education-page/FounderStory';
 import Trust from '../components/education-page/Trust';
@@ -49,6 +50,7 @@ export default function Education() {
       <Disqualification />
       <Solution />
       <Features />
+      <DemoVideo />
       <Gallery />
       <FounderStory />
       <Trust />

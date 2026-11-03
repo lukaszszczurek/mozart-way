@@ -9,6 +9,7 @@ import MozartAdsPage from './pages/mozart-ads/MozartAdsPage';
 import Resume from './pages/Resume';
 import SalesResume from './pages/SalesResume';
 import TechResume from './pages/TechResume';
+import Demo from './pages/Demo';
 
 /**
  * Page registry. Add new service landings here as Dr Strange generates them.
@@ -38,6 +39,10 @@ export const router = createBrowserRouter([
   {
     path: '/education',
     element: <Education />,
+  },
+  {
+    path: '/demo',
+    element: <Demo />,
   },
   {
     path: '/mastermode',
