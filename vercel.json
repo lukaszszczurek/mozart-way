@@ -1,4 +1,7 @@
 {
+  "headers": [
+    { "source": "/umowa/:path+", "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }] }
+  ],
   "rewrites": [
     { "source": "/book", "destination": "https://mozartway-calendar.vercel.app/book" },
     { "source": "/book/:path+", "destination": "https://mozartway-calendar.vercel.app/book/:path+" },
@@ -14,6 +17,8 @@
     { "source": "/z/:path+", "destination": "https://la-bot-nine.vercel.app/z/:path+" },
     { "source": "/api/z/:path+", "destination": "https://la-bot-nine.vercel.app/api/z/:path+" },
     { "source": "/api/o/:path+", "destination": "https://la-bot-nine.vercel.app/api/o/:path+" },
+    { "source": "/umowa/:path+", "destination": "https://la-bot-nine.vercel.app/umowa/:path+" },
+    { "source": "/api/umowa/:path+", "destination": "https://la-bot-nine.vercel.app/api/umowa/:path+" },
     { "source": "/api/meetings/:id/ics", "destination": "https://la-bot-nine.vercel.app/api/meetings/:id/ics" },
     { "source": "/_next/:path+", "destination": "https://la-bot-nine.vercel.app/_next/:path+" },
     { "source": "/(.*)", "destination": "/index.html" }
